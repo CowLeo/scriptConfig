@@ -1,0 +1,6 @@
+version: '2'
+services:
+    jdk:
+        image: java:8-jdk-alpine
+    jre:
+        image: java:8-jre-alpine
