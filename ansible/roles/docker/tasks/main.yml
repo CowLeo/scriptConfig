@@ -1,0 +1,9 @@
+---
+- name: Install docker-engine
+  yum: name=docker-engine state=present
+- name: Copy daemon.json
+  copy: src=daemon.json dest=/etc/docker/daemon.json
+  notify: restart docker
+- name: ensure dockerd is running
+  service: name=docker state=started
+
