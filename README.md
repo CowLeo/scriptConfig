@@ -10,3 +10,7 @@ sudo service docker restart
 
 $ curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > /usr/bin/docker-machine && \
         chmod +x /usr/bin/docker-machine
+# 启动mongodb和mongo-express
+docker volume create --nmae mongo-data
+docker run --name mongodb -v mongo-data:/data/db  -p 27017:27017 -d mongo
+docker run --name mongo-express --link mongodb:mongo -p 8081:8081 -d mongo-express
